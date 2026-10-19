@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "immersion-assistant"
+version = "0.1.0"
+description = "Local-first Chinese language immersion companion with live on-screen translation assistance."
+authors = [
+  { name = "Michael Li" }
+]
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.109",
+  "httpx>=0.25",
+  "pillow>=10.0",
+  "pydantic>=2.5",
+  "pytesseract>=0.3",
+  "pypinyin>=0.50",
+  "pyyaml>=6.0",
+  "uvicorn>=0.24",
+  "rich>=13.0",
+  "watchdog>=3.0",
+  "pyside6>=6.6",
+  "pyobjc-framework-Quartz>=9.0; platform_system == 'Darwin'"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4",
+  "pytest-asyncio>=0.21",
+  "ruff>=0.1.9"
+]
+
+[project.urls]
+homepage = "https://github.com/michaelli28/immersion-assistant"
+repository = "https://github.com/michaelli28/immersion-assistant"
