@@ -14,7 +14,7 @@
    `TranslationPipeline` applies a glossary shortcut, then defers to the configured provider (currently `EchoTranslator` placeholder). It caches results (LRU) to avoid redundant requests as the screen changes. Integrate Marian/Mt5/Bloomz-based translators for offline support.
 
 4. **Language Enrichment**  
-   `language.py` adds pinyin (tone3 format) and maps syllables to tone colors. Hook into Context7 MCP’s `/theajack/cnchar` dataset for richer dictionary entries, radicals, stroke data, and idioms.
+   `language.py` adds pinyin (tone3 format) and maps syllables to tone colors. Hook into the `cnchar` library (theajack/cnchar) for richer dictionary entries, radicals, stroke data, and idioms.
 
 5. **Overlay Modeling**  
    `build_overlay` merges OCR spans, translations, and enrichment into `OverlaySpan` objects that describe everything the UI needs to render tooltips, tone-color text, and glossary flags.
@@ -26,7 +26,7 @@
 
 - **Capture providers** – Implement a `ScreenCapture` subclass (e.g., Windows GDI+, Wayland portal) and swap via dependency injection.
 - **Translation providers** – Implement `TranslationProvider` interface for Marian, M2M100, DeepL, Google, or custom LLM-based translators. Consider streaming partial translations for smoother overlays.
-- **Language services** – Replace `pypinyin` fallback with a dedicated node/Context7 bridge exposing `cnchar` functions for stroke order, radicals, idioms, and names.
+- **Language services** – Replace `pypinyin` fallback with a dedicated Node bridge exposing `cnchar` functions for stroke order, radicals, idioms, and names.
 - **UX modes** – Build alternative front-ends (browser extension, menu-bar quick look, AR glasses) by consuming the `/state` API or a shared IPC channel.
 
 ## Storage & Configuration
